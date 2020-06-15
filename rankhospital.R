@@ -10,7 +10,7 @@ library(dplyr)
 options(warn=-1)
 
 #Ranking hospitals by outcome in a state
-rankhospital<-function(state, outcome, num){
+rankhospital<-function(state, outcome, num="best"){
   ##Read outcome data
   dat<-read.csv("outcome-of-care-measures.csv")
   
@@ -48,7 +48,7 @@ rankhospital<-function(state, outcome, num){
       return(NA)
     } else {
       #rank hospitals from best to worst
-      Cstatedat<- Cstatedat[order(Cstatedat[,i], Cstatedat$Hospital.Name),]
+      Cstatedat<- Cstatedat[order(Cstatedat[,i]),]
       hospitalname<-Cstatedat[num, ]$Hospital.Name
     }
   }
