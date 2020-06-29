@@ -78,9 +78,8 @@ url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fwksst8110.for" #save url
 download.file(url, destfile="./doc5") #download doc from link and save it inside the wd 
 dataq5<- read.table("./doc5", sep=",") #read data, but this is a fixed width file format, so we need diff extraction method
 dataq5 <- read.fwf("./doc5",widths=c(-1,9,-5,4,4,-5,4,4,-5,4,4,-5,4,4), skip=4) #we need to specify the widths
-#because they have not been specified
+#because they have not been specified 
 ## skip =4 is for skipping the first 4 lines
-#The widths are determined like thatt: 
 #-1 -> leaves one blank(if you open the .for file in n++, you will see the space before 03JAN1990)
 # 9 -> length of the date, 
 # -5 -> leaves 5 blank, 
